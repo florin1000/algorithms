@@ -1,5 +1,6 @@
 const getProductsOfAllElementsExcetpAtIndex = (arr) => {
-    if (arr.length < 3) {
+    let len = arr.length;
+    if (len < 3) {
         console.log("not enough elements");
         return false;
     }
@@ -8,17 +9,17 @@ const getProductsOfAllElementsExcetpAtIndex = (arr) => {
     let productNow = 1;
     arr.map((el, i) => {
         listOfProducts[i] = productNow;
-        productNow *= arr[i];
+        return productNow *= arr[i];
     });
 
     console.log(`list or the products of all the previous elements ${listOfProducts}`);
 
     productNow = 1;
-    for (let i = arr.length - 1; i >= 0; i--) {
-        listOfProducts[i] *= productNow;
-        productNow *= arr[i];
-    }
-    
+    arr.map((el, i) => {
+        listOfProducts[len - i - 1] *= productNow;
+        return productNow *= arr[len - i - 1];
+    });
+
     console.log(`list or the products of all the previous and next elements ${listOfProducts}`);
 
 };
