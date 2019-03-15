@@ -5,5 +5,5 @@
  
  **Example**   
  
- _input array_  [1, 2, 6, 5, 9]    
- _output array_ [540, 270, 90, 108, 60]
+ _input array_  **[1, 2, 6, 5, 9]**   
+ _output array_ **[540, 270, 90, 108, 60]**
