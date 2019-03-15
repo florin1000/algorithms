@@ -1,4 +1,4 @@
-const getProductsOfAllElementsExcetpAtIndex = (arr) => {
+const getProductsOfAllElementsExceptAtIndex = (arr) => {
     let len = arr.length;
     if (len < 3) {
         console.log("not enough elements");
@@ -24,4 +24,4 @@ const getProductsOfAllElementsExcetpAtIndex = (arr) => {
 
 };
 
-getProductsOfAllElementsExcetpAtIndex([1, 2, 6, 5, 9]);
+getProductsOfAllElementsExceptAtIndex([1, 2, 6, 5, 9]);
