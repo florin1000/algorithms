@@ -1,6 +1,6 @@
 /**
  * given 2 sorted arrays, merge them into  new sorted one
- * skip the input validation
+ * skip the input validation(we make sure we have 2 arrays with at least2 elements inside)
  * */
 
 const mergeSortedArrays = (arr1, arr2) => {
@@ -20,11 +20,29 @@ const mergeSortedArrays = (arr1, arr2) => {
         }
     }
     return arrFinal;
-
-    // return new Array(max).fill(null)
-    //     .map((elem, i) => arr1[i] === i ? i : arr2[i] === i ? i : null)
-    //     .filter(elem => !!elem);
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])) // [0,3,4,4,6,30,31] // O( m + n)
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])) // [0,3,4,4,6,30,31] // O(n)
+
+const mergeSortedArrays2 = (arr1, arr2) => {
+    let arr1Item = arr1[0];
+    let arr2Item = arr2[0];
+    const arrFinal = [];
+    let i = 1; //counter for first arr
+    let j = 1; // counter for second arr
+    while (arr1Item || arr2Item) {
+        if (!arr2Item || arr1Item < arr2Item) {
+            arrFinal.push(arr1Item);
+            arr1Item = arr1[i];
+            i++
+        } else {
+            arrFinal.push(arr2Item);
+            arr2Item = arr2[j];
+            j++
+        }
+    }
+
+    return arrFinal
+}
+console.log(mergeSortedArrays2([0, 3, 4, 31], [4, 6, 30])) // [0,3,4,4,6,30,31] // O(n)
 
