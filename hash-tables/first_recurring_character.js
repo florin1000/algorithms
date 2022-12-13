@@ -21,11 +21,11 @@ const firstRecurringCharacter = (arr) => {
 
 function firstRecurringCharacter2(arr) {
     const map = {};
-    for (let i = 0; i < arr.length; i++) {
-        if (map[arr[i]]) {
-            return arr[i]
+    for (const element of arr) {
+        if (map[element]) {
+            return element
         } else {
-            map[arr[i]] = true;
+            map[element] = true;
         }
     }
     return undefined;
