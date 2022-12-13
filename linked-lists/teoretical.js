@@ -36,9 +36,9 @@ class LinkedList {
             return this;
         }
         // validate index ->  should be smaller than the length the list length -> than will just append to the end
-        if (index < -this.length) {
-            return this.append(value)
-        }
+        // if (index < this.length) {
+        //     return this.append(value)
+        // }
 
         const newNode = {
             value: value,
@@ -49,6 +49,18 @@ class LinkedList {
         leader.next = newNode;
         newNode.next = holdingPointer;
         this.length++
+        return this;
+    }
+
+    remove(index) {
+        if (index === 0) {
+            this.head = this.head.next;
+            return this;
+        }
+        const leader = this.traverseToIndex(index - 1);
+        const unwantedLeader = leader.next;
+        leader.next = unwantedLeader.next
+        this.length--
         return this;
     }
 
@@ -70,6 +82,7 @@ myLinkedList.prepend(9)
 myLinkedList.prepend(8)
 // console.log(JSON.stringify(myLinkedList.head))
 myLinkedList.insert(3, 100);
+myLinkedList.remove(2);
 console.log(JSON.stringify(myLinkedList.head));
 console.log(JSON.stringify(myLinkedList.tail));
 //8->9->10->11->12
